@@ -12,7 +12,7 @@ class SplashCreen extends StatelessWidget {
           image: DecorationImage(
             image: AssetImage("assets/images/Logo.png"),
             fit: BoxFit.none,
-          )
+          ),
         ),
       ),
     );

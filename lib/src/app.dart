@@ -15,8 +15,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: "/",
       routes: {
-        // "/": (_) => const HomePage(),
-        "/": (_) => const LoginPage(),
+        // "/": (_) => const LoginPage(),
+        "/": (_) => const HomePage(),
         // "/": (_) => const SplashCreen(),
       },
       localizationsDelegates: const [
