@@ -5,6 +5,59 @@ import 'package:flutter/material.dart';
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
+  showAlertDialog(BuildContext context) {
+    Widget email = TextButton(
+      child: Text(
+        "phcs.971@gmail.com",
+        style: TextStyle(fontSize: 14, color: Color(0xFFCA7613), fontWeight: FontWeight.w500),
+      ),
+      onPressed: () {
+        //TODO Enviar email
+      },
+    );
+    Widget continueButton = TextButton(
+      child: Text(
+        "OK",
+        style: TextStyle(fontSize: 14, color: Color(0xFF9F150D), fontWeight: FontWeight.w700),
+      ),
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+    );
+
+    AlertDialog alert = AlertDialog(
+      //TODO Falta as bordas
+      title: Center(
+        child: Text(
+          "SIXTH SENSE",
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+        ),
+      ),
+      content: Text(
+        "Este aplicativo faz parte de um projeto que inclui a utilização de sensores para detecção de concussões no Futebol Americano.\n\nCaso tenha alguma dúvida, está interessado em comprar o sensor, ou gostaria de relatar algum problema, por favor entre em contato com o email abaixo.",
+        style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+        textAlign: TextAlign.center,
+      ),
+      actions: [
+        Center(
+          child: Column(
+            children: [
+              email,
+              continueButton,
+            ],
+          ),
+        ),
+      ],
+    );
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
   Widget _gridView() => GridView.count(
         //TODO Arrumar GridView
         crossAxisCount: 2,
@@ -80,8 +133,12 @@ class HomePage extends StatelessWidget {
           "Sensores\nCadastrados",
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.normal),
         ),
-        actions: const [
-          Icon(Icons.help_outline_outlined, size: 24),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.help_outline_outlined),
+            color: Colors.white,
+            onPressed: () => showAlertDialog(context),
+          ),
           SizedBox(width: 16),
         ],
       ),
