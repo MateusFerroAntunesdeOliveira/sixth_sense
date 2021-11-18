@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'pages/login/login_page.dart';
 import 'pages/home/home_page.dart';
+import 'pages/player/player_page.dart';
 import 'pages/player/edit_page.dart';
 import 'pages/splash/splash_page.dart';
 
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
       routes: {
         // "/": (_) => const LoginPage(),
         // "/": (_) => const HomePage(),
-        "/": (_) => const EditPlayer(),
+        "/": (_) => const PlayerPage(),
+        "/EditPlayer": (_) => const EditPlayer(),
         // "/": (_) => const SplashCreen(),
       },
       localizationsDelegates: const [

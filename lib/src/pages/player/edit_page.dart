@@ -114,7 +114,7 @@ class EditPlayer extends StatelessWidget {
                       style: TextStyle(color: Color(0xFFBDBDBD), fontSize: 16),
                     ),
                     onPressed: () {
-                      //TODO OnPressed do botão Salvar
+                      //TODO OnPressed do botão Conectar
                     },
                   ),
                 ],
