@@ -30,7 +30,7 @@ class PlayerPage extends StatelessWidget {
             icon: const Icon(Icons.edit_outlined),
             color: Colors.white,
             onPressed: () {
-              Navigator.of(context).pushNamed('/EditPlayer');
+              Navigator.of(context).pushNamed('/PlayerPage/EditPlayer');
             },
           ),
           IconButton(

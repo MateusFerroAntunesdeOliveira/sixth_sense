@@ -18,9 +18,9 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         // "/": (_) => const LoginPage(),
-        // "/": (_) => const HomePage(),
-        "/": (_) => const PlayerPage(),
-        "/EditPlayer": (_) => const EditPlayer(),
+        "/": (_) => const HomePage(),
+        "/PlayerPage": (_) => const PlayerPage(),
+        "/PlayerPage/EditPlayer": (_) => const EditPlayer(),
         // "/": (_) => const SplashCreen(),
       },
       localizationsDelegates: const [

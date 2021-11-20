@@ -143,6 +143,14 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: _gridView(),
+      floatingActionButton: FloatingActionButton(
+        tooltip: "Adicionar Jogador",
+        child: const Icon(Icons.add, size: 32),
+        backgroundColor: Color(0xFF9F150D),
+        onPressed: () {
+          Navigator.of(context).pushNamed('/PlayerPage');
+        },
+      ),
     );
   }
 }
