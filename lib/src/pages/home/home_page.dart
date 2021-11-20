@@ -9,7 +9,11 @@ class HomePage extends StatelessWidget {
     Widget email = TextButton(
       child: Text(
         "phcs.971@gmail.com",
-        style: TextStyle(fontSize: 14, color: Color(0xFFCA7613), fontWeight: FontWeight.w500),
+        style: TextStyle(
+            fontSize: 14,
+            color: Color(0xFFCA7613),
+            fontWeight: FontWeight.w500,
+            fontFamily: 'Montserrat'),
       ),
       onPressed: () {
         //TODO Enviar email
@@ -18,7 +22,11 @@ class HomePage extends StatelessWidget {
     Widget continueButton = TextButton(
       child: Text(
         "OK",
-        style: TextStyle(fontSize: 14, color: Color(0xFF9F150D), fontWeight: FontWeight.w700),
+        style: TextStyle(
+            fontSize: 14,
+            color: Color(0xFF9F150D),
+            fontWeight: FontWeight.w700,
+            fontFamily: 'Montserrat'),
       ),
       onPressed: () {
         Navigator.of(context).pop();
@@ -30,12 +38,20 @@ class HomePage extends StatelessWidget {
       title: Center(
         child: Text(
           "SIXTH SENSE",
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.w700,
+            fontFamily: 'Montserrat',
+          ),
         ),
       ),
       content: Text(
         "Este aplicativo faz parte de um projeto que inclui a utilização de sensores para detecção de concussões no Futebol Americano.\n\nCaso tenha alguma dúvida, está interessado em comprar o sensor, ou gostaria de relatar algum problema, por favor entre em contato com o email abaixo.",
-        style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+        style: TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.w500,
+          fontFamily: 'Montserrat',
+        ),
         textAlign: TextAlign.center,
       ),
       actions: [
@@ -93,9 +109,7 @@ class HomePage extends StatelessWidget {
                 Text(
                   "#25 Jorginho",
                   style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                  ),
+                      fontSize: 12, fontWeight: FontWeight.w500, fontFamily: 'Montserrat'),
                 ),
                 SizedBox(height: 2),
                 //-> Botoes ON e ALERT
@@ -104,14 +118,28 @@ class HomePage extends StatelessWidget {
                   children: [
                     Column(
                       children: const [
-                        Text("ON", style: TextStyle(fontSize: 8, fontWeight: FontWeight.w500)),
+                        Text(
+                          "ON",
+                          style: TextStyle(
+                            fontSize: 8,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'Montserrat',
+                          ),
+                        ),
                         Icon(Icons.circle, color: Color(0xFF0A7C00)),
                       ],
                     ),
                     SizedBox(width: 14),
                     Column(
                       children: const [
-                        Text("ALERT", style: TextStyle(fontSize: 8, fontWeight: FontWeight.w500)),
+                        Text(
+                          "ALERT",
+                          style: TextStyle(
+                            fontSize: 8,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'Montserrat',
+                          ),
+                        ),
                         Icon(Icons.circle_outlined),
                       ],
                     ),
@@ -125,36 +153,42 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF9F150D),
-        toolbarHeight: 128,
-        title: const Text(
-          "Sensores\nCadastrados",
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.normal),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: const Color(0xFF9F150D),
+          toolbarHeight: 128,
+          title: const Text(
+            "Sensores\nCadastrados",
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.normal,
+              fontFamily: 'Montserrat',
+            ),
+          ),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.logout_outlined),
+              color: Colors.white,
+              onPressed: () => Navigator.of(context).pushNamed('/LoginPage'),
+            ),
+            IconButton(
+              icon: const Icon(Icons.help_outline_outlined),
+              color: Colors.white,
+              onPressed: () => showAlertDialog(context),
+            ),
+            SizedBox(width: 16),
+          ],
         ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.logout_outlined),
-            color: Colors.white,
-            onPressed: () => Navigator.of(context).pushNamed('/LoginPage'),
-          ),
-          IconButton(
-            icon: const Icon(Icons.help_outline_outlined),
-            color: Colors.white,
-            onPressed: () => showAlertDialog(context),
-          ),
-          SizedBox(width: 16),
-        ],
-      ),
-      body: _gridView(),
-      floatingActionButton: FloatingActionButton(
-        tooltip: "Adicionar Jogador",
-        child: const Icon(Icons.add, size: 32),
-        backgroundColor: Color(0xFF9F150D),
-        onPressed: () {
-          Navigator.of(context).pushNamed('/PlayerPage');
-        },
+        body: _gridView(),
+        floatingActionButton: FloatingActionButton(
+          tooltip: "Adicionar Jogador",
+          child: const Icon(Icons.add, size: 32),
+          backgroundColor: Color(0xFF9F150D),
+          onPressed: () {
+            Navigator.of(context).pushNamed('/PlayerPage');
+          },
+        ),
       ),
     );
   }
