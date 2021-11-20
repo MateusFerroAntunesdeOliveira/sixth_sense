@@ -27,6 +27,7 @@ flutter:
 
   assets:
     - assets/images/Logo.png
+    - assets/images/Logo_2.png
     - assets/images/Player.png
 
   # fonts:

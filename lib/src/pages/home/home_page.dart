@@ -135,6 +135,11 @@ class HomePage extends StatelessWidget {
         ),
         actions: [
           IconButton(
+            icon: const Icon(Icons.logout_outlined),
+            color: Colors.white,
+            onPressed: () => Navigator.of(context).pushNamed('/LoginPage'),
+          ),
+          IconButton(
             icon: const Icon(Icons.help_outline_outlined),
             color: Colors.white,
             onPressed: () => showAlertDialog(context),
