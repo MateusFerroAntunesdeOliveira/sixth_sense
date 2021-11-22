@@ -2,8 +2,6 @@
 
 import 'package:flutter/material.dart';
 
-import '../player/player_page.dart';
-
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -23,7 +21,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             fontFamily: 'Montserrat'),
       ),
       onPressed: () {
-        //TODO Enviar email
+        //TODO OnPressed Enviar email
       },
     );
     Widget continueButton = TextButton(
@@ -41,7 +39,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     );
 
     AlertDialog alert = AlertDialog(
-      //TODO Falta as bordas
       title: Center(
         child: Text(
           "SIXTH SENSE",
@@ -92,81 +89,83 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    Widget _gridView() => GridView.count(
-          //TODO Arrumar GridView
-          crossAxisCount: 2,
-          mainAxisSpacing: 12,
-          crossAxisSpacing: 20,
-          children: List.generate(30, (index) {
-            return Container(
-              height: 150,
-              width: 96,
-              margin: EdgeInsets.only(top: 12, left: 16, right: 4),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(color: Color(0xFF9F150D), width: 2),
-                borderRadius: BorderRadius.circular(16),
+    Widget buildPlayerCard(int index) => Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            border: Border.all(color: const Color(0xFF9F150D), width: 2),
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Column(
+            children: [
+              //-> Imagem e borda
+              Container(
+                width: 80,
+                height: 90,
+                margin: const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 4),
+                decoration: BoxDecoration(
+                  image: const DecorationImage(
+                    image: AssetImage("assets/images/Player.png"),
+                    fit: BoxFit.cover,
+                  ),
+                  border: Border.all(color: const Color(0xFF9F150D), width: 2),
+                  borderRadius: BorderRadius.circular(16),
+                ),
               ),
-              child: Column(
+              //-> Texto Player
+              const Text(
+                "#25 Jorginho",
+                style:
+                    TextStyle(fontSize: 12, fontWeight: FontWeight.w500, fontFamily: 'Montserrat'),
+              ),
+              const SizedBox(height: 2),
+              //-> Botoes ON e ALERT
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  //-> Imagem e borda
-                  Container(
-                    width: 80,
-                    height: 80,
-                    margin: EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 4),
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("assets/images/Player.png"),
-                        fit: BoxFit.cover,
+                  Column(
+                    children: const [
+                      Text(
+                        "ON",
+                        style: TextStyle(
+                          fontSize: 8,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'Montserrat',
+                        ),
                       ),
-                      border: Border.all(color: Color(0xFF9F150D), width: 2),
-                      borderRadius: BorderRadius.circular(16),
-                    ),
+                      Icon(Icons.circle, color: Color(0xFF0A7C00), size: 20),
+                    ],
                   ),
-                  //-> Texto Player
-                  Text(
-                    "#25 Jorginho",
-                    style: TextStyle(
-                        fontSize: 12, fontWeight: FontWeight.w500, fontFamily: 'Montserrat'),
-                  ),
-                  SizedBox(height: 2),
-                  //-> Botoes ON e ALERT
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Column(
-                        children: const [
-                          Text(
-                            "ON",
-                            style: TextStyle(
-                              fontSize: 8,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: 'Montserrat',
-                            ),
-                          ),
-                          Icon(Icons.circle, color: Color(0xFF0A7C00)),
-                        ],
+                  const SizedBox(width: 14),
+                  Column(
+                    children: const [
+                      Text(
+                        "ALERT",
+                        style: TextStyle(
+                          fontSize: 8,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'Montserrat',
+                        ),
                       ),
-                      SizedBox(width: 14),
-                      Column(
-                        children: const [
-                          Text(
-                            "ALERT",
-                            style: TextStyle(
-                              fontSize: 8,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: 'Montserrat',
-                            ),
-                          ),
-                          Icon(Icons.circle_outlined),
-                        ],
-                      ),
+                      Icon(Icons.circle_outlined, size: 20),
                     ],
                   ),
                 ],
               ),
-            );
-          }),
+            ],
+          ),
+        );
+
+    Widget _gridView() => GridView.builder(
+          itemCount: 50,
+          padding: EdgeInsets.all(16),
+          itemBuilder: (context, index) => buildPlayerCard(index),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            childAspectRatio: 96 / 144,
+            crossAxisSpacing: 20,
+            mainAxisSpacing: 12,
+          ),
+          physics: BouncingScrollPhysics(),
         );
 
     return Scaffold(
@@ -174,6 +173,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         backgroundColor: const Color(0xFF9F150D),
         toolbarHeight: 98,
         bottom: TabBar(
+          indicatorColor: Color(0xFFCA7613),
+          indicatorPadding: EdgeInsets.symmetric(horizontal: 12),
+          indicator: IndicatorCustomTab(),
           controller: controller,
           tabs: const [
             Tab(text: "Ativos"),
@@ -191,14 +193,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.logout_outlined),
-            color: Colors.white,
-            onPressed: () => Navigator.of(context).pushReplacementNamed('/LoginPage'),
-          ),
-          IconButton(
             icon: const Icon(Icons.help_outline_outlined),
             color: Colors.white,
             onPressed: () => showAlertDialog(context),
+          ),
+          IconButton(
+            icon: const Icon(Icons.logout_outlined),
+            color: Colors.white,
+            onPressed: () => Navigator.of(context).pushReplacementNamed('/LoginPage'),
           ),
           SizedBox(width: 16),
         ],
@@ -213,5 +215,31 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         },
       ),
     );
+  }
+}
+
+class IndicatorCustomTab extends Decoration {
+  @override
+  BoxPainter createBoxPainter([VoidCallback? onChanged]) {
+    return CustomIndicator();
+  }
+}
+
+class CustomIndicator extends BoxPainter {
+  @override
+  void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
+    final size = configuration.size!;
+    final x = size.width;
+    final y = size.height;
+    final paint = Paint().. color = Color(0xFFCA7613);
+
+    Path path = Path()
+    ..moveTo(offset.dx, y)
+    ..relativeArcToPoint(const Offset(4, -4), radius: const Radius.circular(4))
+    ..relativeLineTo(x - 8, 0)
+    ..relativeArcToPoint(const Offset(4, 4), radius: const Radius.circular(4))
+    ..close();
+
+    canvas.drawPath(path, paint);
   }
 }

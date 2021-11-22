@@ -8,7 +8,7 @@ class EditPlayer extends StatelessWidget {
   Widget _inputText({required String hintText, Function(String?)? onSaved}) {
     return TextFormField(
       onSaved: onSaved,
-      //TODO validator: ,
+      //TODO Fazer o validator: ,
       decoration: SixthSenseStyles.inputDecoration(hintText),
     );
   }
@@ -55,7 +55,7 @@ class EditPlayer extends StatelessWidget {
                           image: AssetImage("assets/images/Player.png"),
                           fit: BoxFit.cover,
                         ),
-                        border: Border.all(color: Color(0xFF9F150D), width: 2),
+                        border: Border.all(color: const Color(0xFF9F150D), width: 2),
                         borderRadius: BorderRadius.circular(16),
                       ),
                     ),
@@ -111,17 +111,17 @@ class EditPlayer extends StatelessWidget {
                       hintText: "Código do sensor",
                     ),
                   ),
-                  SizedBox(width: 12),
+                  const SizedBox(width: 12),
                   ElevatedButton(
                     style: BasicButtonStyle(
                       elevation: 0,
                       backgroundColor: Colors.transparent,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(4),
-                        side: BorderSide(color: Color(0xFFBDBDBD)),
+                        side: const BorderSide(color: Color(0xFFBDBDBD)),
                       ),
                     ),
-                    child: Text(
+                    child: const Text(
                       "CONECTAR",
                       style: TextStyle(
                         color: Color(0xFFBDBDBD),
@@ -165,12 +165,12 @@ class EditPlayer extends StatelessWidget {
                     child: ElevatedButton(
                       style: BasicButtonStyle(
                         elevation: 0,
-                        backgroundColor: Color(0xFF0A7C00),
+                        backgroundColor: const Color(0xFF0A7C00),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(4),
                         ),
                       ),
-                      child: Text(
+                      child: const Text(
                         "SALVAR",
                         style: TextStyle(
                           color: Colors.white,
