@@ -1,20 +1,21 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 
-class SplashCreen extends StatelessWidget {
-  const SplashCreen({Key? key}) : super(key: key);
+import '../home/home_page.dart';
+
+class SplashScreen extends StatelessWidget {
+  const SplashScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF9F150D),
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/images/Logo.png"),
-            fit: BoxFit.none,
-          ),
-        ),
-      ),
+      body: AnimatedSplashScreen(
+          backgroundColor: const Color(0xFF9F150D),
+          splashIconSize: 350,
+          splash: Image.asset("assets/images/Logo.png"),
+          duration: 2000,
+          splashTransition: SplashTransition.fadeTransition,
+          nextScreen: const HomePage()),
     );
   }
 }

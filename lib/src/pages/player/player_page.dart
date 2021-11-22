@@ -168,11 +168,13 @@ class PlayerPage extends StatelessWidget {
                     _infoText(title: "Email:", description: "jorginho@proplayer.com"),
                     const SizedBox(height: 8),
                     _infoText(title: "Telefone:", description: "+55 (41) 98765-4321"),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 24),
+                    Divider(thickness: 2),
+                    const SizedBox(height: 8),
                     Text(
                       "INFORMAÇÕES DE SAÚDE",
                       style: TextStyle(
-                        fontSize: 10,
+                        fontSize: 12,
                         fontWeight: FontWeight.w600,
                         color: Color(0xFF4F4F4F),
                         fontFamily: 'Montserrat',

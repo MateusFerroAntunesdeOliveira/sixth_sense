@@ -77,7 +77,7 @@ class EditPlayer extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Expanded(flex: 2, child: _inputText(hintText: "Peso")),
-                              SizedBox(width: 8),
+                              const SizedBox(width: 8),
                               Expanded(flex: 3, child: _inputText(hintText: "Altura")),
                             ],
                           ),
@@ -87,7 +87,7 @@ class EditPlayer extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Expanded(flex: 2, child: _inputText(hintText: "#")),
-                              SizedBox(width: 8),
+                              const SizedBox(width: 8),
                               Expanded(flex: 3, child: _inputText(hintText: "Tipo Sangue")),
                             ],
                           ),
