@@ -15,10 +15,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       child: Text(
         "phcs.971@gmail.com",
         style: TextStyle(
-            fontSize: 14,
-            color: Color(0xFFCA7613),
-            fontWeight: FontWeight.w500,
-            fontFamily: 'Montserrat'),
+          fontSize: 14,
+          color: Color(0xFFCA7613),
+          fontWeight: FontWeight.w500,
+          fontFamily: 'Montserrat',
+          decoration: TextDecoration.underline,
+        ),
       ),
       onPressed: () {
         //TODO OnPressed Enviar email
@@ -231,14 +233,14 @@ class CustomIndicator extends BoxPainter {
     final size = configuration.size!;
     final x = size.width;
     final y = size.height;
-    final paint = Paint().. color = Color(0xFFCA7613);
+    final paint = Paint()..color = Color(0xFFCA7613);
 
     Path path = Path()
-    ..moveTo(offset.dx, y)
-    ..relativeArcToPoint(const Offset(4, -4), radius: const Radius.circular(4))
-    ..relativeLineTo(x - 8, 0)
-    ..relativeArcToPoint(const Offset(4, 4), radius: const Radius.circular(4))
-    ..close();
+      ..moveTo(offset.dx, y)
+      ..relativeArcToPoint(const Offset(4, -4), radius: const Radius.circular(4))
+      ..relativeLineTo(x - 8, 0)
+      ..relativeArcToPoint(const Offset(4, 4), radius: const Radius.circular(4))
+      ..close();
 
     canvas.drawPath(path, paint);
   }

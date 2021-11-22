@@ -57,6 +57,10 @@ class SixthSenseStyles {
       borderSide: const BorderSide(color: Color(0xFF9F150D), width: 1),
       borderRadius: BorderRadius.circular(8),
     );
+    final _b2 = OutlineInputBorder(
+      borderSide: const BorderSide(color: Color(0xFF9F150D), width: 2),
+      borderRadius: BorderRadius.circular(8),
+    );
     return InputDecoration(
       fillColor: fillColor,
       filled: true,
@@ -69,9 +73,9 @@ class SixthSenseStyles {
       border: _b,
       errorBorder: _b,
       enabledBorder: _b,
-      focusedBorder: _b,
+      focusedBorder: _b2,
       disabledBorder: _b,
-      focusedErrorBorder: _b,
+      focusedErrorBorder: _b2,
     );
   }
 }

@@ -16,6 +16,7 @@ class LoginPage extends StatelessWidget {
           color: Color(0xFFCA7613),
           fontWeight: FontWeight.w500,
           fontFamily: 'Montserrat',
+          decoration: TextDecoration.underline,
         ),
       ),
       onPressed: () {

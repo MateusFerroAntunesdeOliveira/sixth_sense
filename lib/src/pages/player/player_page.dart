@@ -10,6 +10,7 @@ class PlayerPage extends StatelessWidget {
   Widget _infoText({required String title, required String description}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           title,
@@ -21,6 +22,7 @@ class PlayerPage extends StatelessWidget {
         ),
         Text(
           description,
+          textAlign: TextAlign.end,
           style: TextStyle(
             fontSize: 14,
             color: Color(0xFF828282),
@@ -70,6 +72,7 @@ class PlayerPage extends StatelessWidget {
         ],
       ),
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -188,7 +191,7 @@ class PlayerPage extends StatelessWidget {
                     _infoText(title: "Peso:", description: "97,5 kg"),
                     const SizedBox(height: 8),
                     _infoText(
-                        title: "Contato de Emergência",
+                        title: "Contato de Emergência: ",
                         description: "+55 (41) 98765-4321\n   Jorginho da Silva"),
                     const SizedBox(height: 8),
                   ],

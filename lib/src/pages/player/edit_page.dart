@@ -10,6 +10,7 @@ class EditPlayer extends StatelessWidget {
       onSaved: onSaved,
       //TODO Fazer o validator: ,
       decoration: SixthSenseStyles.inputDecoration(hintText),
+      cursorColor: const Color(0xFF9F150D),
     );
   }
 
@@ -17,15 +18,7 @@ class EditPlayer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          tooltip: "Voltar",
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
         backgroundColor: const Color(0xFF9F150D),
-        toolbarHeight: 56,
         centerTitle: true,
         title: const Text(
           "Editar Jogador",
@@ -37,6 +30,7 @@ class EditPlayer extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           child: Column(
@@ -48,7 +42,7 @@ class EditPlayer extends StatelessWidget {
                   Expanded(
                     flex: 2,
                     child: Container(
-                      height: 220,
+                      height: 216,
                       width: 128,
                       decoration: BoxDecoration(
                         image: const DecorationImage(
@@ -69,7 +63,6 @@ class EditPlayer extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           //-> Nome
-                          const SizedBox(height: 8),
                           _inputText(hintText: "Nome"),
                           const SizedBox(height: 8),
                           //-> Peso e Altura
@@ -94,7 +87,6 @@ class EditPlayer extends StatelessWidget {
                           const SizedBox(height: 8),
                           //-> Posição
                           _inputText(hintText: "Posição"),
-                          const SizedBox(height: 8),
                         ],
                       ),
                     ),
@@ -102,7 +94,7 @@ class EditPlayer extends StatelessWidget {
                 ],
               ),
               //-> TextsForms
-              const SizedBox(height: 12),
+              const SizedBox(height: 8),
               //-> Codigo do Sensor e botão Conectar
               Row(
                 children: [
@@ -139,19 +131,16 @@ class EditPlayer extends StatelessWidget {
               _inputText(hintText: "Email"),
               const SizedBox(height: 8),
               _inputText(hintText: "Telefone"),
-              const SizedBox(height: 8),
+              const SizedBox(height: 16),
               //-> Contato de Emergência
-              Row(
-                children: const [
-                  Text(
-                    "CONTATO DE EMERGÊNCIA",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      fontFamily: 'Montserrat',
-                    ),
-                  ),
-                ],
+              const Text(
+                "CONTATO DE EMERGÊNCIA",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: 'Montserrat',
+                ),
               ),
               const SizedBox(height: 8),
               _inputText(hintText: "Nome"),
@@ -159,31 +148,28 @@ class EditPlayer extends StatelessWidget {
               _inputText(hintText: "Telefone"),
               const SizedBox(height: 8),
               //-> Botao salvar
-              Row(
-                children: [
-                  Expanded(
-                    child: ElevatedButton(
-                      style: BasicButtonStyle(
-                        elevation: 0,
-                        backgroundColor: const Color(0xFF0A7C00),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                      ),
-                      child: const Text(
-                        "SALVAR",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontFamily: 'Montserrat',
-                        ),
-                      ),
-                      onPressed: () {
-                        //TODO OnPressed do botão Salvar
-                      },
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: BasicButtonStyle(
+                    elevation: 0,
+                    backgroundColor: const Color(0xFF0A7C00),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                ],
+                  child: const Text(
+                    "SALVAR",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontFamily: 'Montserrat',
+                    ),
+                  ),
+                  onPressed: () {
+                    //TODO OnPressed do botão Salvar
+                  },
+                ),
               ),
             ],
           ),
