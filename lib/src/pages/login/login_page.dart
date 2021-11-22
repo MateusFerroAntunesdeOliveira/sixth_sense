@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../utils/utils.dart';
@@ -21,6 +22,7 @@ class LoginPage extends StatelessWidget {
         //TODO Enviar email
       },
     );
+    
     Widget continueButton = TextButton(
       child: const Text(
         "OK",
@@ -37,7 +39,6 @@ class LoginPage extends StatelessWidget {
     );
 
     AlertDialog alert = AlertDialog(
-      //TODO Falta as bordas
       title: const Center(
         child: Text(
           "SIXTH SENSE",
@@ -61,11 +62,8 @@ class LoginPage extends StatelessWidget {
       actions: [
         Center(
           child: Column(
-            children: [
-              email,
-              continueButton,
-            ],
-          ),
+            children: [email, continueButton],
+          )
         ),
       ],
     );
@@ -243,15 +241,12 @@ class BackgroundLogo extends CustomPainter {
 
     Path path = Path()
       ..moveTo(0, size.height * 0.385)
-      ..cubicTo(size.width * 0.1 , size.height * 0.315, 
-                size.width, size.height * 0.275,
-                size.width, size.height * 0.215)
-                
+      ..cubicTo(size.width * 0.1, size.height * 0.315, size.width, size.height * 0.275, size.width,
+          size.height * 0.215)
       ..lineTo(size.width, size.height * 0.485)
-      ..cubicTo(size.width * 0.9, size.height * 0.55,
-                size.width * 0.05, size.height * 0.595, 
-                0, size.height * 0.665);
-                
+      ..cubicTo(size.width * 0.9, size.height * 0.55, size.width * 0.05, size.height * 0.595, 0,
+          size.height * 0.665);
+
     canvas.drawPath(path, paint);
     path.close();
   }
