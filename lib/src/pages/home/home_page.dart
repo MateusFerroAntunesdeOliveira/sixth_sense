@@ -79,14 +79,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       },
     );
   }
+  
+  late TabController controller;
 
   @override
   void initState() {
     super.initState();
     controller = TabController(length: 3, vsync: this);
   }
-
-  late TabController controller;
 
   @override
   Widget build(BuildContext context) {

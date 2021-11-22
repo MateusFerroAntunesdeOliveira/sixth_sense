@@ -56,6 +56,7 @@ class LoginPage extends StatelessWidget {
         ),
         textAlign: TextAlign.center,
       ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
       actions: [
         Center(
           child: Column(
@@ -78,155 +79,153 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: const Color(0xFF9F150D),
-        body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                //-> Bem vindo e 'ajuda'
-                Padding(
-                  padding: const EdgeInsets.only(top: 16, left: 8, right: 8),
+    return Scaffold(
+      backgroundColor: const Color(0xFF9F150D),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              //-> Bem vindo e 'ajuda'
+              Padding(
+                padding: const EdgeInsets.only(top: 16, left: 8, right: 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      "Bem-vindo(a) ao",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 24,
+                          fontFamily: 'Montserrat'),
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.help_outline_outlined),
+                      color: Colors.white,
+                      onPressed: () => showAlertDialog(context),
+                    ),
+                  ],
+                ),
+              ),
+              //-> Sixth Sense
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8),
+                child: Text(
+                  "Sixth Sense",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 36,
+                      fontFamily: 'Montserrat'),
+                ),
+              ),
+              // Logo
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 32),
+                child: Container(
+                  height: 380,
+                  color: Colors.white.withOpacity(0.3),
+                  child: const Center(
+                    child: Text("LOGO E DESENHO"),
+                  ),
+                ),
+              ),
+              //-> Apple
+              Expanded(
+                child: ElevatedButton(
+                  style: BasicButtonStyle(
+                    elevation: 0,
+                    backgroundColor: Colors.black,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                  ),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        "Bem-vindo(a) ao",
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Icon(Icons.light_mode_rounded, color: Colors.white),
+                      SizedBox(width: 8),
+                      Text(
+                        "Continuar com Apple",
                         style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 24,
-                            fontFamily: 'Montserrat'),
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.help_outline_outlined),
-                        color: Colors.white,
-                        onPressed: () => showAlertDialog(context),
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontFamily: 'Montserrat',
+                        ),
                       ),
                     ],
                   ),
+                  onPressed: () {
+                    Navigator.of(context).pushReplacementNamed('/');
+                  },
                 ),
-                //-> Sixth Sense
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8),
-                  child: Text(
-                    "Sixth Sense",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 36,
-                        fontFamily: 'Montserrat'),
-                  ),
-                ),
-                // Logo
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 32),
-                  child: Container(
-                    height: 380,
-                    color: Colors.white.withOpacity(0.3),
-                    child: const Center(
-                      child: Text("LOGO E DESENHO"),
+              ),
+              const SizedBox(height: 8),
+              //-> Google
+              Expanded(
+                child: ElevatedButton(
+                  style: BasicButtonStyle(
+                    elevation: 0,
+                    backgroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(100),
                     ),
                   ),
-                ),
-                //-> Apple
-                Expanded(
-                  child: ElevatedButton(
-                    style: BasicButtonStyle(
-                      elevation: 0,
-                      backgroundColor: Colors.black,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(100),
-                      ),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Icon(Icons.light_mode_rounded, color: Colors.white),
-                        SizedBox(width: 8),
-                        Text(
-                          "Continuar com Apple",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: 'Montserrat',
-                          ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Icon(Icons.ac_unit, color: Colors.black),
+                      SizedBox(width: 8),
+                      Text(
+                        "Continuar com Google",
+                        style: TextStyle(
+                          color: Color(0xFF2E324A),
+                          fontSize: 16,
+                          fontFamily: 'Montserrat',
                         ),
-                      ],
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).pushReplacementNamed('/');
-                    },
-                  ),
-                ),
-                const SizedBox(height: 8),
-                //-> Google
-                Expanded(
-                  child: ElevatedButton(
-                    style: BasicButtonStyle(
-                      elevation: 0,
-                      backgroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(100),
                       ),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Icon(Icons.ac_unit, color: Colors.black),
-                        SizedBox(width: 8),
-                        Text(
-                          "Continuar com Google",
-                          style: TextStyle(
-                            color: Color(0xFF2E324A),
-                            fontSize: 16,
-                            fontFamily: 'Montserrat',
-                          ),
-                        ),
-                      ],
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).pushReplacementNamed('/');
-                    },
+                    ],
                   ),
+                  onPressed: () {
+                    Navigator.of(context).pushReplacementNamed('/');
+                  },
                 ),
-                const SizedBox(height: 8),
-                //-> Facebook
-                Expanded(
-                  child: ElevatedButton(
-                    style: BasicButtonStyle(
-                      elevation: 0,
-                      backgroundColor: const Color(0xFF3769C9),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(100),
+              ),
+              const SizedBox(height: 8),
+              //-> Facebook
+              Expanded(
+                child: ElevatedButton(
+                  style: BasicButtonStyle(
+                    elevation: 0,
+                    backgroundColor: const Color(0xFF3769C9),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Icon(Icons.account_circle, color: Colors.white),
+                      SizedBox(width: 8),
+                      Text(
+                        "Continuar com Facebook",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontFamily: 'Montserrat',
+                        ),
                       ),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Icon(Icons.account_circle, color: Colors.white),
-                        SizedBox(width: 8),
-                        Text(
-                          "Continuar com Facebook",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: 'Montserrat',
-                          ),
-                        ),
-                      ],
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).pushReplacementNamed('/');
-                    },
+                    ],
                   ),
+                  onPressed: () {
+                    Navigator.of(context).pushReplacementNamed('/');
+                  },
                 ),
-                const SizedBox(height: 8),
-              ],
-            ),
+              ),
+              const SizedBox(height: 8),
+            ],
           ),
         ),
       ),
