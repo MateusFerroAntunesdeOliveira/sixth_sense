@@ -123,7 +123,7 @@ class PlayerPage extends StatelessWidget {
                           "CONECTAR",
                           style: TextStyle(
                             color: Color(0xFFBDBDBD),
-                            fontSize: 16,
+                            fontSize: 14,
                             fontFamily: 'Montserrat',
                           ),
                         ),
@@ -188,7 +188,7 @@ class PlayerPage extends StatelessWidget {
                       const SizedBox(height: 8),
                       _infoText(
                           title: "Contato de Emergência",
-                          description: "+55 (41) 98765-4321\n      Jorginho da Silva"),
+                          description: "+55 (41) 98765-4321\n   Jorginho da Silva"),
                       const SizedBox(height: 8),
                     ],
                   ),

@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
 import '../../utils/utils.dart';
@@ -51,7 +49,7 @@ class EditPlayer extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Container(
-                        height: 228,
+                        height: 220,
                         width: 128,
                         decoration: BoxDecoration(
                           image: const DecorationImage(
@@ -69,25 +67,35 @@ class EditPlayer extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.only(left: 8),
                         child: Column(
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             //-> Nome
+                            const SizedBox(height: 8),
                             _inputText(hintText: "Nome"),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 8),
                             //-> Peso e Altura
-                            _inputText(hintText: "Peso"),
-                            SizedBox(height: 10),
-                            //-> Numero e Tipo de Sangue
-                            _inputText(hintText: "Numero"),
-                            SizedBox(height: 10),
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Expanded(flex: 2, child: _inputText(hintText: "Peso")),
+                                SizedBox(width: 8),
+                                Expanded(flex: 3, child: _inputText(hintText: "Altura")),
+                              ],
+                            ),
+                            //-> Numero e Tipo Sangue
+                            const SizedBox(height: 8),
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Expanded(flex: 2, child: _inputText(hintText: "#")),
+                                SizedBox(width: 8),
+                                Expanded(flex: 3, child: _inputText(hintText: "Tipo Sangue")),
+                              ],
+                            ),
+                            const SizedBox(height: 8),
                             //-> Posição
                             _inputText(hintText: "Posição"),
-                            //TODO Questão das rows com outros textsForms...
-                            // Expanded(flex: 1, child: _inputText(hintText: "Telefone")),
-                            // Row(
-                            //   children: [
-                            //     _inputText(hintText: "Nome"),
-                            //   ],
-                            // ),
+                            const SizedBox(height: 8),
                           ],
                         ),
                       ),
@@ -95,7 +103,7 @@ class EditPlayer extends StatelessWidget {
                   ],
                 ),
                 //-> TextsForms
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
                 //-> Codigo do Sensor e botão Conectar
                 Row(
                   children: [
@@ -128,11 +136,11 @@ class EditPlayer extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 _inputText(hintText: "Email"),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 _inputText(hintText: "Telefone"),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 //-> Contato de Emergência
                 Row(
                   children: const [
@@ -146,11 +154,11 @@ class EditPlayer extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 _inputText(hintText: "Nome"),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 _inputText(hintText: "Telefone"),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 //-> Botao salvar
                 Row(
                   children: [

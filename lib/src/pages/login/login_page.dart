@@ -158,7 +158,7 @@ class LoginPage extends StatelessWidget {
                       ],
                     ),
                     onPressed: () {
-                      Navigator.of(context).pushNamed('/');
+                      Navigator.of(context).pushReplacementNamed('/');
                     },
                   ),
                 ),
@@ -189,7 +189,7 @@ class LoginPage extends StatelessWidget {
                       ],
                     ),
                     onPressed: () {
-                      Navigator.of(context).pushNamed('/');
+                      Navigator.of(context).pushReplacementNamed('/');
                     },
                   ),
                 ),
@@ -220,7 +220,7 @@ class LoginPage extends StatelessWidget {
                       ],
                     ),
                     onPressed: () {
-                      Navigator.of(context).pushNamed('/');
+                      Navigator.of(context).pushReplacementNamed('/');
                     },
                   ),
                 ),
