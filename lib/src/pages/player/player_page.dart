@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 
+import 'graphic_chart.dart';
 import '../../utils/utils.dart';
 
 class PlayerPage extends StatelessWidget {
@@ -82,15 +83,9 @@ class PlayerPage extends StatelessWidget {
                 height: 200,
                 width: double.infinity,
                 color: Colors.red.withOpacity(0.5),
-                child: const Center(
-                  child: Text(
-                    "GRÁFICO",
-                    style: TextStyle(
-                      fontSize: 32,
-                      color: Colors.black,
-                      fontFamily: 'Montserrat',
-                    ),
-                  ),
+                child: GraphicChart(
+                  animate: true,
+                  seriesList: const [],
                 ),
               ),
               const SizedBox(height: 8),
