@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,7 +10,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   showAlertDialog(BuildContext context) {
     Widget email = TextButton(
-      child: Text(
+      child: const Text(
         "phcs.971@gmail.com",
         style: TextStyle(
           fontSize: 14,
@@ -27,7 +25,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       },
     );
     Widget continueButton = TextButton(
-      child: Text(
+      child: const Text(
         "OK",
         style: TextStyle(
             fontSize: 14,
@@ -41,7 +39,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     );
 
     AlertDialog alert = AlertDialog(
-      title: Center(
+      title: const Center(
         child: Text(
           "SIXTH SENSE",
           style: TextStyle(
@@ -51,7 +49,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           ),
         ),
       ),
-      content: Text(
+      content: const Text(
         "Este aplicativo faz parte de um projeto que inclui a utilização de sensores para detecção de concussões no Futebol Americano.\n\nCaso tenha alguma dúvida, está interessado em comprar o sensor, ou gostaria de relatar algum problema, por favor entre em contato com o email abaixo.",
         style: TextStyle(
           fontSize: 14,
@@ -100,17 +98,20 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           child: Column(
             children: [
               //-> Imagem e borda
-              Container(
-                width: 80,
-                height: 90,
-                margin: const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 4),
-                decoration: BoxDecoration(
-                  image: const DecorationImage(
-                    image: AssetImage("assets/images/Player.png"),
-                    fit: BoxFit.cover,
+              GestureDetector(
+                onTap: () => Navigator.of(context).pushNamed('/PlayerPage'),
+                child: Container(
+                  width: 80,
+                  height: 90,
+                  margin: const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 4),
+                  decoration: BoxDecoration(
+                    image: const DecorationImage(
+                      image: AssetImage("assets/images/Player.png"),
+                      fit: BoxFit.cover,
+                    ),
+                    border: Border.all(color: const Color(0xFF9F150D), width: 2),
+                    borderRadius: BorderRadius.circular(16),
                   ),
-                  border: Border.all(color: const Color(0xFF9F150D), width: 2),
-                  borderRadius: BorderRadius.circular(16),
                 ),
               ),
               //-> Texto Player
@@ -159,15 +160,15 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
     Widget _gridView() => GridView.builder(
           itemCount: 50,
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           itemBuilder: (context, index) => buildPlayerCard(index),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
             childAspectRatio: 96 / 144,
             crossAxisSpacing: 20,
             mainAxisSpacing: 12,
           ),
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
         );
 
     return Scaffold(
@@ -175,8 +176,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         backgroundColor: const Color(0xFF9F150D),
         toolbarHeight: 98,
         bottom: TabBar(
-          indicatorColor: Color(0xFFCA7613),
-          indicatorPadding: EdgeInsets.symmetric(horizontal: 12),
+          indicatorColor: const Color(0xFFCA7613),
+          indicatorPadding: const EdgeInsets.symmetric(horizontal: 12),
           indicator: IndicatorCustomTab(),
           controller: controller,
           tabs: const [
@@ -204,16 +205,16 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             color: Colors.white,
             onPressed: () => Navigator.of(context).pushReplacementNamed('/LoginPage'),
           ),
-          SizedBox(width: 16),
+          const SizedBox(width: 16),
         ],
       ),
       body: _gridView(),
       floatingActionButton: FloatingActionButton(
         tooltip: "Adicionar Jogador",
         child: const Icon(Icons.add, size: 32),
-        backgroundColor: Color(0xFF9F150D),
+        backgroundColor: const Color(0xFF9F150D),
         onPressed: () {
-          Navigator.of(context).pushNamed('/PlayerPage');
+          Navigator.of(context).pushNamed('/PlayerPage/EditPlayer');
         },
       ),
     );
@@ -233,7 +234,7 @@ class CustomIndicator extends BoxPainter {
     final size = configuration.size!;
     final x = size.width;
     final y = size.height;
-    final paint = Paint()..color = Color(0xFFCA7613);
+    final paint = Paint()..color = const Color(0xFFCA7613);
 
     Path path = Path()
       ..moveTo(offset.dx, y)
