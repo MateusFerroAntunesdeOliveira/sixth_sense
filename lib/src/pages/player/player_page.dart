@@ -77,6 +77,7 @@ class PlayerPage extends StatelessWidget {
           child: Column(
             children: [
               //-> Grafico
+              const SizedBox(height: 8),
               const SizedBox(
                 height: 200,
                 width: double.infinity,
@@ -85,7 +86,7 @@ class PlayerPage extends StatelessWidget {
                   seriesList: [],
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 16),
               //-> Text do Sensor
               Row(
                 children: [
