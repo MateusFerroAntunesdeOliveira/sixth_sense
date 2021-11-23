@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
 import 'graphic_chart.dart';
@@ -15,7 +13,7 @@ class PlayerPage extends StatelessWidget {
       children: [
         Text(
           title,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w500,
             fontFamily: 'Montserrat',
@@ -24,7 +22,7 @@ class PlayerPage extends StatelessWidget {
         Text(
           description,
           textAlign: TextAlign.end,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 14,
             color: Color(0xFF828282),
             fontFamily: 'Montserrat',
@@ -73,31 +71,30 @@ class PlayerPage extends StatelessWidget {
         ],
       ),
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
             children: [
               //-> Grafico
-              Container(
+              const SizedBox(
                 height: 200,
                 width: double.infinity,
-                color: Colors.red.withOpacity(0.5),
                 child: GraphicChart(
                   animate: true,
-                  seriesList: const [],
+                  seriesList: [],
                 ),
               ),
               const SizedBox(height: 8),
               //-> Text do Sensor
               Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.circle,
                     color: Color(0xFF0A7C00),
                   ),
-                  SizedBox(width: 8),
-                  Text(
+                  const SizedBox(width: 8),
+                  const Text(
                     "Sensor: 74-13-4A-7B-D9-7E",
                     style: TextStyle(
                       fontSize: 16,
@@ -105,7 +102,7 @@ class PlayerPage extends StatelessWidget {
                       fontFamily: 'Montserrat',
                     ),
                   ),
-                  SizedBox(width: 16),
+                  const SizedBox(width: 16),
                   Expanded(
                     child: ElevatedButton(
                       style: BasicButtonStyle(
@@ -113,10 +110,10 @@ class PlayerPage extends StatelessWidget {
                         backgroundColor: Colors.transparent,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(4),
-                          side: BorderSide(color: Color(0xFFBDBDBD)),
+                          side: const BorderSide(color: Color(0xFFBDBDBD)),
                         ),
                       ),
-                      child: Text(
+                      child: const Text(
                         "CONECTAR",
                         style: TextStyle(
                           color: Color(0xFFBDBDBD),
@@ -167,9 +164,9 @@ class PlayerPage extends StatelessWidget {
                     const SizedBox(height: 8),
                     _infoText(title: "Telefone:", description: "+55 (41) 98765-4321"),
                     const SizedBox(height: 24),
-                    Divider(thickness: 2),
+                    const Divider(thickness: 2),
                     const SizedBox(height: 8),
-                    Text(
+                    const Text(
                       "INFORMAÇÕES DE SAÚDE",
                       style: TextStyle(
                         fontSize: 12,

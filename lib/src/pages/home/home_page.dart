@@ -135,7 +135,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           fontFamily: 'Montserrat',
                         ),
                       ),
+                      //-> ON
                       Icon(Icons.circle, color: Color(0xFF0A7C00), size: 20),
+                      //-> OFF
+                      // Icon(Icons.circle_outlined, size: 20),
                     ],
                   ),
                   const SizedBox(width: 14),
@@ -149,6 +152,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           fontFamily: 'Montserrat',
                         ),
                       ),
+                      //-> Alert
+                      // Icon(Icons.circle, color: Color(0xFF9F150D), size: 20),
+                      //-> No Alert
                       Icon(Icons.circle_outlined, size: 20),
                     ],
                   ),
@@ -159,7 +165,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         );
 
     Widget _gridView() => GridView.builder(
-          itemCount: 50,
+          itemCount: 30,
           padding: const EdgeInsets.all(16),
           itemBuilder: (context, index) => buildPlayerCard(index),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

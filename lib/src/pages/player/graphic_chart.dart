@@ -75,7 +75,7 @@ class GraphicChart extends StatelessWidget {
       GraphicsPlayer(
         day: DateTime(2021, 11, 26),
         gForce: 385,
-        lineColor: charts.ColorUtil.fromDartColor(const Color(0xFFFFFFFF)),
+        lineColor: charts.ColorUtil.fromDartColor(const Color(0xFF9F150D)),
       ),
     ];
 
